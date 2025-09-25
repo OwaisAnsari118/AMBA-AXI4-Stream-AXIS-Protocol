@@ -28,3 +28,10 @@ The following are the most commonly used AXIS signals (names shown as typical `S
 **Core rule**: A transfer occurs on a rising clock edge when both **TVALID and TREADY are high.**
 
 ## Handshake with TVALID asserted before TREADY
+<img width="434" height="174" alt="Screenshot 2025-09-25 162623" src="https://github.com/user-attachments/assets/f63d3cd9-1e77-4e74-adac-8348b09a6652" />
+
+## Handshake with TREADY asserted before TVALID
+<img width="428" height="211" alt="Screenshot 2025-09-25 162720" src="https://github.com/user-attachments/assets/54d44cfc-2590-43b5-91d8-e7f7027f3b74" />
+
+## Handshake with TVALID and TREADY asserted simultaneously
+<img width="420" height="188" alt="Screenshot 2025-09-25 162806" src="https://github.com/user-attachments/assets/c12c0003-30f1-4f0a-9c5b-fee5606771fa" />
