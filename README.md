@@ -10,6 +10,8 @@ The following are the most commonly used AXIS signals (names shown as typical `S
 
 | Signal           | Source | Width           | Description                                                                                      |
 |------------------|--------|-----------------|--------------------------------------------------------------------------------------------------|
+| `ACLK`           | Clock  | 1               | **ACLK** is a global clock signal. All signals are sampled on rising edge of ACLK                |
+| `ARESTn`         | Reset  | 1               | **ARESETn** is a global reset signal.                                                            |
 | `TDATA`          | Master | `TDATA_WIDTH`   | Primary data payload (must be an integer number of bytes)                                        | 
 | `TVALID`         | Master | 1               | Indicates the master drivers valid data this cycle                                               |
 | `TREADY`         | Slave  | 1               | Indicates the slave is ready to accept data this cycle                                           |
@@ -18,6 +20,11 @@ The following are the most commonly used AXIS signals (names shown as typical `S
 | `TUSER`          | Master | `TUSER_WIDTH`   | User-defined sideband bits, e.g., start-of-frame, error flags                                    | 
 | `TID`            | Master | `TID_WIDTH`     | Stream identifier for routing or multi-stream scenarios                                          |
 | `TDEST`          | Master | `TDEST_WIDTH`   | Destination routing info for interconnnects                                                      |
+| `TWAKEUP`        | Master | 1               | **TWAKEUP** identifies any activity associated with AXI-Stream interface                         | 
 
 **Implementation note: `TDATA_WIDTH` should be a whole number of bytes (8-bit multiples). Common widths: 8, 16, 32, 64, 128, 256, 512.**
 
+## Handshake signaling
+**Core rule**: A transfer occurs on a rising clock edge when both **TVALID and TREADY are high.**
+
+## Handshake with TVALID asserted before TREADY
