@@ -13,7 +13,7 @@ The following are the most commonly used AXIS signals (names shown as typical `S
 | `TVALID`         | Master | 1               | Indicates the master drivers valid data this cycle                                               |
 | `TREADY`         | Slave  | 1               | Indicates the slave is ready to accept data this cycle                                           |
 | `TLAST`          | Master | 1               | Marks the last beat of packet/frame                                                              |
-| `TKEEP`/ `TSTRB` | Master | `TDATA_WIDTH/8` | Byte qualifiers indicate which bytes in `TDATA` are valid [ TKEEP ] or strobe qualifer [ TSTRB ] |
+| `TKEEP`/ `TSTRB` | Master | `TDATA_WIDTH/8` | Byte qualifiers indicate which bytes in `TDATA` are valid (TKEEP) or strobe qualifer (TSTRB)     |
 | `TUSER`          | Master | `TUSER_WIDTH`   | User-defined sideband bits, e.g., start-of-frame, error flags                                    | 
 | `TID`            | Master | `TID_WIDTH`     | Stream identifier for routing or multi-stream scenarios                                          |
 | `TDEST`          | Master | `TDEST_WIDTH`   | Destination routing info for interconnnects                                                      |
