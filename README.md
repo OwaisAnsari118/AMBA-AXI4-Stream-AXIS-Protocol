@@ -25,7 +25,15 @@ The following are the most commonly used AXIS signals (names shown as typical `S
 **Implementation note: `TDATA_WIDTH` should be a whole number of bytes (8-bit multiples). Common widths: 8, 16, 32, 64, 128, 256, 512.**
 
 ## Handshake signaling
-**Core rule**: A transfer occurs on a rising clock edge when both **TVALID and TREADY are high.**
+- The `VALID` signal goes from the source to the destination, and `READY` goes from the destination to the source.
+- The source uses the VALID signal to indicate when valid information is available. The VALID signal must remain asserted, meaning set to high, until the destination accepts the information. Signals that remain asserted in this way are called sticky signals.
+- The destination indicates when it can accept information using thr READY signal. The READY signal goes from the channel destination to the channel souce.
+- This mechanism is not an asynchronous hanshake, and requires the rising edge of the clock for the hanshkae to complete.
+
+**Core rule**:
+  - `READY` and `VALID` should br independent.
+  - READY could be asserted prior to or after Valid.
+  - A transfer occurs on a rising clock edge when both **TVALID and TREADY are high.**
 
 ## Handshake with TVALID asserted before TREADY
 <img width="434" height="174" alt="Screenshot 2025-09-25 162623" src="https://github.com/user-attachments/assets/f63d3cd9-1e77-4e74-adac-8348b09a6652" />
